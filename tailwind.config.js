@@ -6,13 +6,11 @@ export default {
   ],
   theme: {
     extend: {
-      ...theme,
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
       },
       colors: {
-        ...theme.colors,
         white: '#ffffff',
         blue: {
           500: '#177EF3',
