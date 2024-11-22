@@ -13,6 +13,7 @@ export default {
       colors: {
         white: '#ffffff',
         blue: {
+          300: '#A4CAF8',
           500: '#177EF3',
           700: '#0259BB'
         },
@@ -20,6 +21,7 @@ export default {
           500: '#435265'
         },
         gray: {
+          50: '#808080',
           100: '#E2ECF2',
           200: '#DEE5E9',
           300: '#D6D4D4'
