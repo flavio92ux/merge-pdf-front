@@ -1,12 +1,12 @@
 import Header from './components/header/Header'
-import DropForm from './components/drop-form/DropForm'
+import InputPdf from './components/drop-form/InputPdf'
 
 function App() {
 
   return (
     <>
       <Header />
-      <DropForm />
+      <InputPdf />
     </>
   )
 }
