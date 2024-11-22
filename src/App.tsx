@@ -1,5 +1,6 @@
 import Header from './components/header/Header'
 import InputPdf from './components/drop-form/InputPdf'
+import DateFilter from './components/pdf-list/DateFilter'
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <Header />
       <InputPdf />
+      <DateFilter />
     </>
   )
 }
