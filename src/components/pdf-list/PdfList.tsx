@@ -1,5 +1,6 @@
 import DateFilter from "./DateFilter"
 import NoPdfFound from "./NoPdfFound"
+import PdfCard from "./PdfCard"
 
 function PdfList() {
   return (
@@ -9,6 +10,8 @@ function PdfList() {
       <div className="bg-gray-200"></div>
       
       <NoPdfFound />
+
+      <PdfCard />
     </div>
   )
 }
