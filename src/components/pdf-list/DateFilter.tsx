@@ -1,15 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { DateFilterProps } from "../../interfaces/DateFilterProps";
 
-interface DateFilterProps {
-  startDate: Date;
-  endDate: Date;
-  setStartDate: (date: Date) => void;
-  setEndDate: (date: Date) => void;
-}
-
-const DateFilter: React.FC<DateFilterProps> = ({ startDate, endDate, setStartDate, setEndDate }) => {
+const DateFilter: React.FC<DateFilterProps> = ({ startDate, endDate, setStartDate, setEndDate, arraySize }) => {
   const setDateRange = (daysAgo: number) => {
     const currentDate = new Date();
     const startDate = new Date();
@@ -18,16 +12,12 @@ const DateFilter: React.FC<DateFilterProps> = ({ startDate, endDate, setStartDat
     setEndDate(currentDate);
   };
 
-  useEffect(() => {
-    console.log(startDate)
-  },[startDate])
-
   return (
     <div className="flex justify-between items-center w-[735px] mx-auto mb-5">
       <div className="flex flex-now gap-2 items-center">
         <span>Merges</span>
         <div className="bg-gray-300 rounded-full w-6 h-5 flex items-center justify-center">
-          <span className="font-sans text-xs leading-[14.52px] font-bold text-blueGray-500">0</span>
+          <span className="font-sans text-xs leading-[14.52px] font-bold text-blueGray-500">{arraySize}</span>
         </div>
       </div>
 
