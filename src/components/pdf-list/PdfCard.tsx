@@ -1,7 +1,10 @@
 import calendarIcon from '../../assets/icon-calendar.svg';
 import iconDoc from '../../assets/icon-doc.svg'
+import { IPdfCard } from '../../interfaces/ListContextType';
 
-function PdfCard() {
+function PdfCard({ pdfItem }: IPdfCard) {
+
+  console.log(pdfItem)
 
   return (
     <div className="flex flex-col items-center justify-center mb-[17px]">

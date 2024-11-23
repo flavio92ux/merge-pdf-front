@@ -1,4 +1,15 @@
+export interface IPdfCard {
+  pdfItem: IPdfItem
+}
+
+export interface IPdfItem {
+  id: string,
+  name: string,
+  link: string,
+  createdAt: string
+}
+
 export interface ListContextType {
-  teste: string;
-  setTest(teste: string): void; 
+  listPdf: IPdfItem[];
+  setListPdf(listPdf: IPdfItem[]): void; 
 }

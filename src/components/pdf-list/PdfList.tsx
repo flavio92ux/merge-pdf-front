@@ -5,20 +5,16 @@ import { ListContext } from "../../contexts/ListContext"
 import { useContext, useEffect } from "react"
 
 function PdfList() {
-  const { teste } = useContext(ListContext);
+  const { listPdf } = useContext(ListContext);
 
-  useEffect(() => console.log(teste), []);
+  useEffect(() => console.log(listPdf), []);
 
   return (
     <div>
       <DateFilter />
-      
-      <PdfNotFound />
 
-      <PdfCard />
-      <PdfCard />
-      <PdfCard />
-      <PdfCard />
+      {listPdf.length > 0 ? listPdf.map(pdfItem => <PdfCard pdfItem={pdfItem} />) : <PdfNotFound /> }
+    
     </div>
   )
 }
