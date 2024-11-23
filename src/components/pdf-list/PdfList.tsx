@@ -9,7 +9,11 @@ function PdfList() {
   const { listPdf, setListPdf } = useContext(ListContext);
 
   const [isFetched, setFetched] = useState(false);
-  const [startDate, setStartDate] = useState<Date>(new Date());
+  const [startDate, setStartDate] = useState<Date>(() => {
+    const date = new Date();
+    date.setDate(date.getDate() - 30);
+    return date;
+  });
   const [endDate, setEndDate] = useState<Date>(new Date());
 
   useEffect(() => {
