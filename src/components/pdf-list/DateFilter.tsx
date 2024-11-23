@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { DateFilterProps } from "../../interfaces/DateFilterProps";
 
 const DateFilter: React.FC<DateFilterProps> = ({ startDate, endDate, setStartDate, setEndDate, arraySize }) => {
+  const [range, setRange] = useState(30);
+
   const setDateRange = (daysAgo: number) => {
     const currentDate = new Date();
+    
     const startDate = new Date();
     startDate.setDate(currentDate.getDate() - daysAgo);
+    startDate.setHours(0, 0, 0, 0); 
+  
+  
+    const endDate = new Date(currentDate);
+    endDate.setHours(23, 59, 59, 999);
+
+    const diffTime = endDate.getTime() - startDate.getTime();
+    
+    const diffDays = Math.floor(diffTime / (1000 * 3600 * 24));
+    
+    setRange(diffDays)
     setStartDate(startDate);
-    setEndDate(currentDate);
+    setEndDate(endDate);
   };
 
   return (
@@ -37,7 +51,7 @@ const DateFilter: React.FC<DateFilterProps> = ({ startDate, endDate, setStartDat
               startDate={startDate}
               endDate={endDate}
               dateFormat="dd/MM/yyyy"
-              className="w-[80px] text-blue-400"
+              className="w-[70px] text-blue-400"
             />
             <span>|</span>
             <ReactDatePicker
@@ -48,14 +62,14 @@ const DateFilter: React.FC<DateFilterProps> = ({ startDate, endDate, setStartDat
               endDate={endDate}
               dateFormat="dd/MM/yyyy"
               minDate={startDate}
-              className="w-[80px] text-blue-400"
+              className="w-[70px] text-blue-400"
             />
             <span>|</span>
-            <button onClick={() => setDateRange(0)}>Hoje</button>
+            <button className={`text-blue-400 ${range === 0 ? 'font-bold' : ''}`} onClick={() => setDateRange(0)}>Hoje</button>
             <span>-</span>
-            <button onClick={() => setDateRange(7)}>7 dias</button>
+            <button className={`text-blue-400 ${range === 7 ? 'font-bold' : ''}`} onClick={() => setDateRange(7)}>7 dias</button>
             <span>-</span>
-            <button onClick={() => setDateRange(30)}>30 dias</button>
+            <button className={`text-blue-400 ${range === 30 ? 'font-bold' : ''}`} onClick={() => setDateRange(30)}>30 dias</button>
           </div>
         </div>
       </div>
