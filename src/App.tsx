@@ -1,6 +1,7 @@
 import Header from './components/header/Header'
 import InputPdf from './components/drop-form/InputPdf'
 import PdfList from './components/pdf-list/PdfList'
+import { ListContextProvider } from './providers/ListContextProvider'
 
 function App() {
 
@@ -8,7 +9,9 @@ function App() {
     <>
       <Header />
       <InputPdf />
-      <PdfList />
+      <ListContextProvider>
+        <PdfList />
+      </ListContextProvider>
     </>
   )
 }

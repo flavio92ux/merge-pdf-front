@@ -4,7 +4,7 @@ import iconDoc from '../../assets/icon-doc.svg'
 function PdfCard() {
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center mb-[17px]">
       <div className="flex items-center justify-between px-8 h-14 w-[720px] rounded-lg border border-gray-300 bg-gray-200">
         <div className='flex flex-row gap-x-11 font-sans font-normal text-sm text-blueGray-500'>
           <div className='flex flex-row gap-x-2 items-center'>
