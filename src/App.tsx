@@ -1,17 +1,14 @@
 import Header from './components/header/Header'
 import InputPdf from './components/drop-form/InputPdf'
-import DateFilter from './components/pdf-list/DateFilter'
+import PdfList from './components/pdf-list/PdfList'
 
 function App() {
 
   return (
     <>
       <Header />
-      <div className=''>
-        <InputPdf />
-        <DateFilter />
-      </div>
-
+      <InputPdf />
+      <PdfList />
     </>
   )
 }
