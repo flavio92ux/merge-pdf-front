@@ -7,8 +7,11 @@ function App() {
   return (
     <>
       <Header />
-      <InputPdf />
-      <DateFilter />
+      <div className=''>
+        <InputPdf />
+        <DateFilter />
+      </div>
+
     </>
   )
 }
