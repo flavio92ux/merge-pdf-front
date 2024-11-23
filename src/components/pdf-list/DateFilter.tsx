@@ -7,7 +7,7 @@ const DateFilter: React.FC = () => {
   const [endDate, setEndDate] = useState<any>(new Date());
 
   return (
-    <div className="flex justify-between items-center w-[735px] mx-auto">
+    <div className="flex justify-between items-center w-[735px] mx-auto mb-5">
       <div className="flex flex-now gap-2 items-center">
         <span>Merges</span>
         <div className="bg-gray-300 rounded-full w-6 h-5 flex items-center justify-center">

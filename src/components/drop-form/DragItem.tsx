@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 
 function DragItem() {
@@ -7,10 +7,6 @@ function DragItem() {
   const onDrop = useCallback((files: File[]) => {
     setFiles((prevFiles) => [...prevFiles, ...files]);
   }, [])
-
-  useEffect(() => {
-    console.log(files)
-  }, [files])
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
