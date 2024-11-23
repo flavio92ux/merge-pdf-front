@@ -1,12 +1,11 @@
-import { useCallback, useState } from 'react'
+import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
+import { DragItemProps } from '../../interfaces/DragItemProps';
 
-function DragItem() {
-  const [files, setFiles] = useState<File[]>([]);
-
-  const onDrop = useCallback((files: File[]) => {
-    setFiles((prevFiles) => [...prevFiles, ...files]);
-  }, [])
+const DragItem: React.FC<DragItemProps> = ({ files, setFiles} ) => {
+  const onDrop = useCallback((newFiles: File[]) => {
+    setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+  }, [setFiles]);
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
