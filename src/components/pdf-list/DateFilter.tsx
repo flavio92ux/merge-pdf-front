@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DateFilter: React.FC = () => {
-  const [startDate, setStartDate] = useState<any>(new Date());
-  const [endDate, setEndDate] = useState<any>(new Date());
+interface DateFilterProps {
+  startDate: Date;
+  endDate: Date;
+  setStartDate: (date: Date) => void;
+  setEndDate: (date: Date) => void;
+}
+
+const DateFilter: React.FC<DateFilterProps> = ({ startDate, endDate, setStartDate, setEndDate }) => {
+  const setDateRange = (daysAgo: number) => {
+    const currentDate = new Date();
+    const startDate = new Date();
+    startDate.setDate(currentDate.getDate() - daysAgo);
+    setStartDate(startDate);
+    setEndDate(currentDate);
+  };
+
+  useEffect(() => {
+    console.log(startDate)
+  },[startDate])
 
   return (
     <div className="flex justify-between items-center w-[735px] mx-auto mb-5">
@@ -21,7 +37,12 @@ const DateFilter: React.FC = () => {
             <span>Filtro:</span>
             <ReactDatePicker
               selected={startDate}
-              onChange={(date) => setStartDate(date)}
+              onChange={(date: Date | null) => {
+                setStartDate(date || new Date());
+                if (date && endDate < date) {
+                  setEndDate(date);
+                }
+              }}
               selectsStart
               startDate={startDate}
               endDate={endDate}
@@ -31,19 +52,20 @@ const DateFilter: React.FC = () => {
             <span>|</span>
             <ReactDatePicker
               selected={endDate}
-              onChange={(date) => setEndDate(date)}
+              onChange={(date: Date | null) => setEndDate(date || new Date())}
               selectsEnd
               startDate={startDate}
               endDate={endDate}
               dateFormat="dd/MM/yyyy"
+              minDate={startDate}
               className="w-[80px] text-blue-400"
             />
             <span>|</span>
-            <button>Hoje</button>
+            <button onClick={() => setDateRange(0)}>Hoje</button>
             <span>-</span>
-            <button>7 dias</button>
+            <button onClick={() => setDateRange(7)}>7 dias</button>
             <span>-</span>
-            <button>30 dias</button>
+            <button onClick={() => setDateRange(30)}>30 dias</button>
           </div>
         </div>
       </div>

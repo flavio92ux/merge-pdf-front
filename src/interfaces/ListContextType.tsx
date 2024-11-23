@@ -11,5 +11,5 @@ export interface IPdfItem {
 
 export interface ListContextType {
   listPdf: IPdfItem[];
-  setListPdf(listPdf: IPdfItem[]): void; 
+  setListPdf(listPdf: IPdfItem[]): void;
 }
