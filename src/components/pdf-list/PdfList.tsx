@@ -47,8 +47,8 @@ function PdfList() {
 
     fetchData();
 
-    setTimeout(() => fetchData(), 100)
-
+    setTimeout(() => fetchData(), 300)
+    setTimeout(() => fetchData(), 1000)
   }, [setListPdf, refresh]);
 
   useEffect(() => {
