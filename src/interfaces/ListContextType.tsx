@@ -11,5 +11,6 @@ export interface IPdfItem {
 
 export interface ListContextType {
   listPdf: IPdfItem[];
-  setListPdf(listPdf: IPdfItem[]): void;
+  setListPdf: React.Dispatch<React.SetStateAction<IPdfItem[]>>;
+  
 }
