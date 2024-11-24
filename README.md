@@ -10,7 +10,7 @@ Como pré requisito, é necessário seguir as instruções do README para execut
  - https://github.com/flavio92ux/rabbitmqpdf
 
 Como usar:
- - clone o projeto, abra o termina na raiz
+ - clone o projeto e entre no diretório do projeto
  - npm install
  - npm run dev
 
