@@ -46,6 +46,9 @@ function PdfList() {
     };
 
     fetchData();
+
+    setTimeout(() => fetchData(), 100)
+
   }, [setListPdf, refresh]);
 
   useEffect(() => {
@@ -61,6 +64,7 @@ function PdfList() {
   return (
     <div>
       <DateFilter
+        key={startDate.toISOString() + endDate.toISOString()}
         startDate={startDate}
         endDate={endDate}
         setStartDate={setStartDate}

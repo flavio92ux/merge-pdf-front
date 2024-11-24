@@ -1,4 +1,4 @@
 export interface FormItemProps {
   fileName: string;
-  setFileName: (fileName: string) => void;
+  setFileName: React.Dispatch<React.SetStateAction<string>>;
 }
